@@ -1,0 +1,127 @@
+html{
+    scroll-behavior: smooth;
+}
+body {
+    background-color: hsl(0, 0%, 100%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: hsl(0, 0%, 30%);
+}
+
+.box-element {
+    box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 200px;
+    -webkit-box-shadow: -1px -3px 5px -2px rgba(214, 214, 214, 1);
+    -moz-box-shadow: -1px -3px 5px -2px rgba(214, 214, 214, 1);
+    box-shadow: -1px -3px 5px -2px rgba(214, 214, 214, 1);
+}
+
+.product {
+    border-radius: 0 0 4px 4px;
+}
+
+/* nav bar css for bottom rounded*/
+
+.bg-dark {
+    background-color: #06C2A1!important;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+/* nav bar a tag image width css
+a img{
+    width: 153px;   
+    margin-left: 1%; 
+}
+*/
+
+.nav_name {
+    color: black!important;
+    text-decoration: none;
+    font-family: RobotoCondensed-Regular;
+    width: 40px;
+    font-size: 30px;
+    box-align: left;
+    margin-left: 35px;
+    margin-right: 112px
+}
+
+#cart-icon {
+    width: 35px;
+    display: inline-block;
+    margin-left: 40px;
+    margin-right: 20px;
+}
+
+#recipe-icon {
+    width: 35px;
+    display: inline-block;
+    margin-left: 25px;
+}
+
+#acc-icon {
+    width: 23px;
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.img_recipe {
+    width: 100%;
+}
+
+/*
+start css for footer
+*/
+
+.brand_name_footer {
+    color: black!important;
+    text-decoration: none;
+    font-family: RobotoCondensed-Regular;
+    width: 40px;
+    font-size: 30px;
+    box-align: center;
+    margin-right: 140px
+}
+
+.footerlink {
+    list-style: none;
+}
+
+.alink {
+    display: block;
+    color: rgba(255, 255, 255, .85);
+    font-size: 16px;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+ul.footerlink li a, ul.footerlink li a:visited {
+    color: #FFFFFF !important;
+}
+
+ul.footerlink li a:hover, ul.footerlink li a:active {
+    color: #FFFFFF !important;
+}
+
+ul.footerlink li.active a {
+    color: #FFFFFF !important;
+}
+
+/*
+end css for footer
+*/
+
+@media (min-width:320px) and (max-width:1023px){
+    .brand_name_footer {
+        margin-right: 55px !important;
+    }
+}

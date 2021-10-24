@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <title>Greeban Fresh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="{% static 'favicon.png' %}" />
+    <style>
+        body{
+            height:100vh; 
+            margin:0;
+            
+        }
+    </style>
+    {% block extrahead %}{% endblock %}
+</head>
+
+<body>
+    <header>
+        <nav class=" my-nav navbar navbar-light navbar-expand-lg fixed-top">
+            <div class="container-fluid px-5">
+                <div class="form-inline">
+                    <a class="" href="{{request.META.HTTP_REFERER|escape}}" style="opacity: 1; left: -15%;">
+                        <i class="fas fa-chevron-left" style="color:#000000; font-size:25px;"></i>
+                    </a>
+                    <a id="navlogo" class="navbar-brand" href="{% url 'home' %}" style="padding-left:10px;"><img
+                            src="{% static 'images/logoHomepage.png' %}"></a>
+                </div>
+                <div class="form-inline">
+                    {% block navbar %}
+                    
+                    {% endblock %}
+                    
+                    <form>
+                        <input class="navsearch" type="text" name="search" placeholder="search...."
+                            style="background-image: url({% static 'images/search_icon.png' %});">
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container py-5"></div>
+    <div class="container">
+        <br>
+        {% block content %}
+
+
+        {% endblock content %}
+    </div>
+    <div class="container py-5">
+
+    </div>
+    <!--- Start Footer -->
+    <footer id="page-wrap" style="background-color: #06C2A1!important;bottom: 0px;margin-bottom: 0px;margin-top:auto; ">
+        <div class="container contactitem">
+            <div class="row text-center py-2">
+                <div class="col-lg-3">
+                    <a class="navbar-brand brand_name_footer" href="{% url 'home' %}"><img
+                            src="{% static 'images/logoHomepage.png' %}"></a></br>
+                    <a class="btn-sm" href="#"
+                        onclick=" window.open('https://www.facebook.com/greebanfresh','_blank')"><img
+                            src="{% static 'images/facebook.png' %}"></a>
+                    <a class="btn-sm" href="#"
+                        onclick=" window.open('https://www.instagram.com/greebanfresh/','_blank')"><img
+                            src="{% static 'images/Instagram.png' %}"></a>
+                </div>
+                <div class="col-lg-2 col-md-6 mt-4 mt-lg-0 pt-4 pl-5">
+                    <ul class="text-left footerlink">
+                        <li>
+                            <a class="alink" routerlink="/" href="/">
+                                <span>Home</span></a>
+                        </li>
+                        <li>
+                            <a class="alink" routerlink="/" href="/recipe/">
+                                <span>Recipe</span></a>
+                        </li>
+                        <li>
+                            <a class="alink" routerlink="/" href="/about/">
+                                <span>About Us</span></a>
+                        </li>
+                        <!--<li>
+                            <a class="alink" routerlink="/" href="/contact-us.php">
+                                <span>Contact Us</span></a>
+                        </li>-->
+                    </ul>
+                </div>
+                <div class=" col-lg-15 pt-4 pl-5">
+                    <ul class="text-left footerlink">
+                       
+                        <li>
+                            <a class="alink" routerlink="/" href="/privacypolicy/">
+                                <span>Privacy Policy</span></a>
+                        </li>
+                        <li>
+                            <a class="alink" routerlink="/" href="/termsandcondi/">
+                                <span>Terms & Conditions</span></a>
+                        </li>
+                        <li>
+                            <a class="alink" routerlink="/" href="/returnpolicy/">
+                                <span>Return Policy</span></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <!--- End of Row -->
+            <div class="footer-copyright text-center py-3">Copyright © 2021 | Greeban Fresh Private Limited </a>
+            </div>
+        </div>
+        <!--- End of Container -->
+    </footer>
+    <!--- End of Footer -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        {% block scripts %}
+        <!--- some scripts that apply to to spcific pages -->
+        {% endblock %}
+        <script>
+            $( function() {
+              var availableTags = [
+                "Maharashtra",
+              ];
+              $( "#state" ).autocomplete({
+                source: availableTags
+              });
+            } );
+            </script>
+    <script  type="text/javascript">
+        $(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() < 200) {
+                    $('.navbar .container-fluid .navbar-brand img').attr('src', "{% static 'images/logoHomepage.png' %}");
+                    $('.navbar .container-fluid .navbar-brand img').css('height', '');
+                }
+                if ($(this).scrollTop() > 200) {
+                    $('.navbar .container-fluid .navbar-brand img').attr('src', "{% static 'images/logoWeb.png' %}");
+                    $('.navbar .container-fluid .navbar-brand img').css('height', '65px');
+                }
+            })
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (window.matchMedia("(max-width: 768px)").matches) {
+                $(".navsearch").focus(function () {
+                    $('#navlogo').hide();
+                    $('#recipe-icon').hide();
+                    $('#cart-icon').hide();
+                    $('#acc-icon').hide();
+                    //return false;
+                });
+                $('.navsearch').blur(function () {
+                    if (!$(this).val()) {
+                        $('#navlogo').show('slow');
+                        $('#recipe-icon').show('slow');
+                        $('#cart-icon').show('slow');
+                        $('#acc-icon').show('slow');
+                    }
+                });
+            }
+
+
+        });//end
+    </script>
+    
+    <script>
+        $(".checkpay").hide();
+        $(document).ready(function() {
+            $('.total_b').click(function() {
+                $(".checkadd").toggleClass("showadd");
+            });
+        });
+        $(document).ready(function() {
+            $('#checkout').click(function() {
+                //$(".checkpay").show();
+            });
+        });
+        $(document).ready(function () {
+            if (window.matchMedia("(min-width: 768px)").matches) {
+                $('.col-lg-3').addClass('col-6');
+            }
+        });
+    </script>
+</body>
+
+</html>

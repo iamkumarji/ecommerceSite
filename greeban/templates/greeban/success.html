@@ -1,0 +1,25 @@
+{% extends 'greeban/main.html' %}
+{% load static %}
+{% block extrahead %}
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock %}
+{% block navbar %}
+<a class="" href="{% url 'recipe' %}" data-toggle="tooltip" data-placement="bottom" title="Recipes">
+  <img id="recipe-icon" src="{% static 'images/recipi_prod.png' %}">
+</a>
+<a class="" href="{% url 'cart' %}" data-toggle="tooltip" data-placement="bottom" title="Cart">
+  <img id="cart-icon" src="{% static 'images/cart_green.png' %}">
+</a>
+<a class="" href="#" onclick="goToProfile()" data-toggle="tooltip" data-placement="bottom" title="Account">
+  <img id="acc-icon" src="{% static 'images/user_prod.png' %}">
+</a>
+{% endblock %}
+{% block content %}
+{% csrf_token %}
+<div class="py-3"></div>
+<div class="text-center">
+    <img src="{% static 'images/Service.png' %}" width="250" height="250" />
+</div>
+<h3 class="text-center">{{status}}</h3>
+
+{% endblock content %}

@@ -1,0 +1,51 @@
+{% extends 'greeban/main_cart.html' %}
+{% load cartdata %}
+{% load static %}
+{% load mathfilters %}
+{% block extrahead %}
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock %}
+{% block navbar %}
+    <a class="" href="{% url 'recipe' %}" data-toggle="tooltip" data-placement="bottom" title="Recipes">
+        <img id="recipe-icon" src="{% static 'images/recipi_prod.png' %}">
+    </a>
+    <a class="" href="{% url 'cart' %}" data-toggle="tooltip" data-placement="bottom" title="Cart">
+        <img id="cart-icon" src="{% static 'images/cart_green.png' %}">
+    </a>
+    <a class="" href="#" onclick="goToProfile()" data-toggle="tooltip" data-placement="bottom" title="Account">
+        <img id="acc-icon" src="{% static 'images/user_prod.png' %}">
+    </a>
+{% endblock %}
+{% block content %}
+<div class="container py-2"></div>
+<div class="container text-left">
+			<h1>Terms and Conditions</h1></br>
+			<h3>Personal Information</h3>
+			<p>Greeban Fresh Pvt Ltd (“GFPL”) is the licensed owner of the brand and the website www.greeban.com (”The Site”).Throughout the site, the terms “we”, “us” and “our” refer to GFPL. GFPL respects your privacy. This Privacy Policy provides succinctly the manner your data is collected and used by GFPL on the Site. As a visitor to the Site/ Customer, you are advised to please read the Privacy Policy carefully. By accessing the services provided by the Site you agree to the collection and use of your data by GFPL in the manner provided in this Privacy Policy.</p>
+			<h3>Eligibility</h3>
+			<p>Services of the Site would be available to only select geographies in India. Persons who are "incompetent to contract" within the meaning of the Indian Contract Act, 1872 including un-discharged insolvents etc. are not eligible to use the Site. If you are a minor i.e. under the age of 18 years but at least 13 years of age you may use the Site only under the supervision of a parent or legal guardian who agrees to be bound by these Terms of Use. If your age is below 18 years your parents or legal guardians can transact on behalf of you if they are registered users.You may not use our products for any illegal or unauthorized purpose nor may you, in the use of the Service, violate any laws in your jurisdiction (including but not limited to copyright laws). You must not transmit any worms or viruses or any code of a destructive nature. A breach or violation of any of the Terms will result in an immediate termination of your Services. </p>
+			<h3>Pricing and Orders</h3>
+			<p>Prices for our products are subject to change without notice. We reserve the right at any time to modify or discontinue the Service (or any part or content thereof) without notice at any time. We shall not be liable to you or to any third-party for any modification, price change, suspension or discontinuance of the Service. We reserve the right to refuse any order you place with us. We may, in our sole discretion, limit or cancel quantities purchased per person, per household or per order. These restrictions may include orders placed by or under the same customer account, the same credit card, and/or orders that use the same billing and/or shipping address.That in the event that a non-delivery occurs on account of a mistake by you (i.e. wrong name or address or any other wrong information) any extra cost incurred by GFPL for redelivery shall be claimed from you. In the event that we make a change to or cancel an order, we may attempt to notify you by contacting the e-mail and/or billing address/phone number provided at the time the order was made. We reserve the right to limit or prohibit orders that, in our sole judgment, appear to be placed by dealers, resellers or distributors. That the address at which delivery of the product ordered by you is to be made will be correct and proper in all respects.That before placing an order you will check the product description carefully. By placing an order for a product you agree to be bound by the conditions of sale included in the item's description.</p>
+			<h3>Third Party - Links</h3>
+			<p>Certain content, products and services available via our Service may include materials from third-parties. Third-party links on this site may direct you to third-party websites that are not affiliated with us. We are not responsible for examining or evaluating the content or accuracy and we do not warrant and will not have any liability or responsibility for any third-party materials or websites, or for any other materials, products, or services of third-parties. We are not liable for any harm or damages related to the purchase or use of goods, services, resources, content, or any other transactions made in connection with any third-party websites. Please review carefully the third-party's policies and practices and make sure you understand them before you engage in any transaction. Complaints, claims, concerns, or questions regarding third-party products should be directed to the third-party</p>
+			<h3>Reviews, Feedback, Submissions</h3>
+			<p>All reviews, comments, feedback, postcards, suggestions, ideas, and other submissions disclosed, submitted or offered to the Site on or by this Site or otherwise disclosed, submitted or offered in connection with your use of this Site (collectively, the "Comments") shall be and remain the property of GFPL. Such disclosure, submission or offer of any Comments shall constitute an assignment to GFPL of all worldwide rights, titles and interests in all copyrights and other intellectual properties in the Comments. Thus, GFPL owns exclusively all such rights, titles and interests and shall not be limited in any way in its use, commercial or otherwise, of any Comments. GFPL will be entitled to use, reproduce, disclose, modify, adapt, create derivative works from, publish, display and distribute any Comments you submit for any purpose whatsoever, without restriction and without compensating you in any way. GFPL is and shall be under no obligation (1) to maintain any Comments in confidence; (2) to pay you any compensation for any Comments; or (3) to respond to any Comments. You agree that any Comments submitted by you to the Site will not violate this policy or any right of any third party, including copyright, trademark, privacy or other personal or proprietary right(s), and will not cause injury to any person or entity. You further agree that no Comments submitted by you to the Website will be or contain libellous or otherwise unlawful, threatening, abusive or obscene material, or contain software viruses, political campaigning, commercial solicitation, chain letters, mass mailings or any form of "spam".GFPL does not regularly review posted Comments, but does reserve the right (but not the obligation) to monitor and edit or remove any Comments submitted to the Site. You grant GFPL the right to use the name that you submit in connection with any Comments. You agree not to use a false email address, impersonate any person or entity, or otherwise mislead as to the origin of any Comments you submit. You are and shall remain solely responsible for the content of any Comments you make and you agree to indemnify GFPL and its affiliates for all claims resulting from any Comments you submit. GFPL and its affiliates take no responsibility and assume no liability for any Comments submitted by you or any third party.</p>
+			<h3>Contact Information</h3>
+			<p>377(A), Om Shiv Sai Ram CHS,3rd floor, JSS road, Chira Bazar,near Thakurdwar  PO,opp. Shree Banquet Hall,Mumbai 400002</br>
+Phone : +91 96195 23516 ; +91 98204 39007</br>
+Email : info@greeban.com
+</p>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+{% if range == 0 %}
+<script>
+$(document).ready(function(){
+      $("#page-wrap").css("position", "fixed");
+      $("#page-wrap").css("width", "100%");
+  });
+
+</script>
+{% endif%}
+{% endblock %}

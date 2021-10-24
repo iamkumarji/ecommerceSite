@@ -1,0 +1,67 @@
+  <div class="modal fade" id="modellogin" tabindex="-1" role="dialog" aria-labelledby="modelloginTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float: left">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="text-center py-3">
+            <img src="{% static 'images/model_login.png' %}" alt="" width="150" height="150" style="">
+          </div>
+          <div class="text-center form_model">
+            <h3 style="font-weight:bold;margin: 10px;">Greeban Fresh </h3>
+            <h5 >welcomes you!</h5>
+            <p>Enter Your Mobile Number</p>
+            <form class="text-center">
+              <input type="tel" class="form-control model_input" id="inputmobile" placeholder="">
+              <p>OR</p>
+              <p>Enter Your Email ID</p>
+              <input type="email" class="form-control model_input" id="inputemail" placeholder="">
+            </form>
+            <button type="button" class="btn btn-light btn-success btn-model" onclick="sendMail()" data-toggle="modal" data-dismiss="modal" data-target="#modelverification">
+              Confirm And Proceed
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Web Email verification Modal -->
+  <div class="modal fade" id="modelverification" tabindex="-1" role="dialog" aria-labelledby="modelverificationTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float: left">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="text-center py-3">
+            <img src="{% static 'images/verify_img.png' %}" alt="" width="150" height="150" style="">
+          </div>
+          <div class="text-center form_model">
+            <h3 style="font-weight:bold;margin: 10px;color:#044D40">Verification Code</h3>
+            <p>Please enter the code sent on
+              ka*****21**@gmail.com</p>
+            <form class="text-center">
+              <div id="divOuter">
+                <div id="divInner">
+                  <input id="partitioned" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  onKeyPress="if(this.value.length==4) return false;"/>
+                </div>
+              </div>
+              <div style="margin-top: 10px;">
+              <a href="" class="py-5">Resend Code</a>
+            </div>
+            </form>
+            <div style="margin-top: 30px;">
+            <button type="button" class="btn btn-light btn-success btn-model" onclick="verifyOtp()" data-dismiss="modal" data-target="#">
+              Verify
+            </button>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

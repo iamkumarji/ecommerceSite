@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+{% load static %}
+{% load cartdata %}
+{% load mathfilters %}
+<html>
+
+<head>
+    <title>Greeban Fresh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/product.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <script src="{% static 'js/product.js' %}"></script>
+    <style>
+        #page-wrap {
+            position: relative;
+            width: 100%;
+        }
+
+        #page-content {
+            position: relative;
+            width: 70%;
+            margin: 0px auto;
+            padding: 20px;
+        }
+
+        .circle {
+            width: 707px;
+            height: 708px;
+            border: 5px solid #ffce43;
+            margin: auto;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .circle #prod_img {
+            position: absolute;
+            width: calc(100% - 45px);
+            height: calc(100% - 45px);
+            object-fit: cover;
+            border-radius: 50%;
+            top: 20px;
+            left: 21px;
+        }
+
+        .icons {
+            width: 35px;
+            height: 35px;
+            box-shadow: 0px 20px 30px #dedede;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            border: 1px solid #eee;
+        }
+
+        .icons:nth-child(1) {
+            position: absolute;
+            /*   transform :  translateY(50%); */
+            left: 21%;
+            bottom: 4%;
+        }
+
+        .icons:nth-child(2) {
+            top: 50%;
+            position: absolute;
+            transform: translateX(-50%);
+            left: 0%;
+        }
+
+        .icons:nth-child(3) {
+            top: 40%;
+            position: absolute;
+            transform: translateX(-50%);
+            left: 100%;
+        }
+
+        .icons:nth-child(4) {
+            position: absolute;
+            bottom: 11%;
+            transform: translateY(50%);
+            left: 78%;
+        }
+
+        /*Recommended Produce*/
+        .ourprocat {
+            top: 50px;
+        }
+
+        .btn-success:hover,
+        .btn-success:active,
+        .btn-success:focus {
+            color: #ffffff !important;
+            background-color: #044D40 !important;
+            border-color: #044D40 !important;
+            box-shadow: none;
+        }
+
+        .btn-success {
+            width: 187px;
+        }
+
+        .owl-carousel {
+            position: relative;
+        }
+
+        .owl-stage-outer {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        .owl-carousel .owl-stage-outer {
+            overflow: hidden;
+            height: 370px;
+            width: calc(100% + 40px);
+            background-color: transparent;
+        }
+
+        .owl-carousel .owl-stage {
+            top: 65px;
+            left: 10px;
+        }
+
+        .owl-carousel .owl-nav [class*='owl-'] {
+            -webkit-transition: all .3s ease;
+            transition: all .3s ease;
+        }
+
+        .owl-carousel .owl-next,
+        .owl-carousel .owl-prev {
+            width: 70px;
+            height: 70px;
+            line-height: 50px;
+            border-radius: 50%;
+            position: absolute;
+            top: 30%;
+            font-size: 40px !important;
+            color: #fff;
+            border: 1px solid #ddd;
+            text-align: center;
+            outline: none;
+        }
+
+        .owl-carousel .owl-prev {
+            left: -70px;
+        }
+
+        .owl-carousel .owl-next {
+            right: -90px;
+        }
+
+        .carousel-inner {
+            position: relative;
+            width: 100%;
+            overflow: initial;
+        }
+
+        .outlienadd{
+            outline: none;
+        }
+        /* Recommended Produce end*/
+    </style>
+    <link rel="shortcut icon" href="{% static 'favicon.png' %}" />
+</head>
+
+<body>
+    <div id="page-wrap">
+        <nav class="my-nav navbar navbar-light navbar-expand-lg fixed-top">
+            <div class="container-fluid px-5">
+                <div class="form-inline">
+                    <a class="" href="{{request.META.HTTP_REFERER|escape}}" style="opacity: 1; left: -15%;">
+                        <i class="fas fa-chevron-left" style="color:#000000; font-size:25px;"></i>
+                    </a>
+                    <a id="navlogo" class="navbar-brand" href="{% url 'home' %}" style="padding-left:10px;"><img
+                            src="{% static 'images/logoHomepage.png' %}"></a>
+                </div>
+                <div class="form-inline">
+                    <a class="" href="{% url 'recipe' %}" data-toggle="tooltip" data-placement="bottom" title="Recipes">
+                        <img id="recipe-icon" src="{% static 'images/recipi_prod.png' %}">
+                    </a>
+                    <a class="" href="{% url 'cart' %}" data-toggle="tooltip" data-placement="bottom" title="Cart">
+                        <img id="cart-icon" src="{% static 'images/cart_icon.png' %}">
+                    </a>
+                      <a class="" href="#" onclick="goToProfile()" data-toggle="tooltip" data-placement="bottom" title="Account">
+                        <img id="acc-icon" src="{% static 'images/user_prod.png' %}">
+                    </a>
+                    <form>
+                        <input class="navsearch" type="text" name="search" placeholder="search...."
+                            style="background-image: url({% static 'images/search_icon.png' %});">
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="paddcon"></div>
+    <div class="container" id="page-content">
+        <br>
+
+        <div class="HideOnMobile">
+            <h1 class="prodname">{{mainproduct.product_name}}</h1>
+            <p class="proddesc">{{mainproduct.product_description}}</p>
+            <p class="prodprice"><b>Rs. {{mainproduct.product_price}} ({{mainproduct.product_quantity_per_serving_gms}} gm)</b></p>
+            <div class="circle">
+                <div class="icons"  style="cursor: pointer;">
+                    <input id="{{mainproduct.id}}" class="cart outlienadd main-product-plus" type="image"
+                            src="{% static 'images/plus_prod.png' %}" width="40" height="40" onclick=plus(event,{{mainproduct.id}}) >
+                </div>
+                <div class="icons" onclick="location.href='#';" style="cursor: pointer;">
+                    <a class="cart outlienadd" href="#" onclick="this.focus()"></a>
+                    <img class="" src="{% static 'images/cart_icon.png' %}" width="40" height="40" />
+                    </a>
+                </div>
+                <div class="icons" onclick="location.href='#';" style="cursor: pointer;">
+                    <a class="outlienadd" href="#" onclick="this.focus()">
+                        <img class="" src="{% static 'images/fav_our.png' %}" width="40" height="40" />
+                    </a>
+                </div>
+                <div class="icons" style="cursor: pointer;">
+                    <input id="{{mainproduct.id}}" class="cart outlienadd main-product-minus" type="image" 
+                        src="{% static 'images/minus_prod.png' %}" width="40" height="40" onclick=minus(event,{{mainproduct.id}}) >
+                </div>
+                <img id="prod_img" src="/media/{{mainproduct.product_prof_image}}" alt="">
+            </div>
+            <div class="container py-3 ourprocat">
+                <button id="RecomProd" type="button" class="btn btn-light btn-success btn_width shadow active" data-target="#ourproduce_buton"
+                    data-slide-to="0" >Recommended Produce</button>
+                <button id="RecomRecipies" type="button" class="btn btn-light btn-success btn_width shadow" data-target="#ourproduce_buton"
+                    data-slide-to="1">Recommended Recipies</button>
+            </div>
+            <hr class="card-title-hr">
+            <div id="ourproduce_buton" class="carousel slide" data-ride="carousel" data-interval="false">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="owl-carousel owl-theme">
+                            {% for i in product %}
+                            
+                            <div class="item">
+                                <div class="card border-0 shadow">
+                                    <div class="cardimg text-center">
+                                        <a href="/product/{{i.id}}">
+                                           <img class="card-img-top card_img"
+                                                src="/media/{{i.product_image}}"
+                                                alt="Card image cap">
+                                            <!--  <img class="card-img-top card_img" src="/media/{{i.product_image}}" alt="Card image cap">-->
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title  text-left"><a class="card-title-a"
+                                                href="/product/{{i.id}}">{{ i.product_name }}</a></h4>
+                                        <hr class="card-title-hr">
+                                        <div class="row">
+                                            <div class="col-md-6 col-6">
+                                                <p id="rcorners2" class="shadow">{{i.product_quantity_per_serving_gms }} gm</p>
+                                            </div>
+                                            <div class="col-md-6 col-6">
+                                                <a class="" href="/product/{{i.id}}">
+                                                    <img class="card-img-top text-right our-fav shadow"
+                                                        src="{% static 'images/fav_our.png' %}" alt="Card image cap">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p class="price_pro">Rs.{{ i.product_price }}</p>
+                                            </div>
+                                            <div class="col-6">
+                                                {% if i|cart_prod_quantity:request.session.cart >= 1 %}
+                                                <div class="row">
+                                                    <input id="{{i.id}}" class="outlienadd cart mob_plus shadow" type="image" src="{% static 'images/plus_cart.png' %}" width="40" height="40" onclick=plus(event,{{i.id}})>
+                                                    <p id ="Q-{{i.id}}" class="inline_cartinput"><b>{{  i|cart_prod_quantity:request.session.cart }}</b></p>
+                                                    <input id="{{i.id}}" class="outlienadd cart mob_minus shadow" type="image" src="{% static 'images/minus_cart.png' %}" width="40" height="40" onclick=minus(event,{{i.id}}) >
+                                                </div>
+                                                {% else %}                                                
+                                                    <input id="{{i.id}}" class="shadow outlienadd cart mob_cart" type="image"
+                                                        src="{% static 'images/cart_icon.png' %}" onclick=add_to_cart(event,{{i.id}})>
+                                                
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <h5>Comming Soon</h5>
+                    </div>
+                </div>
+            </div>
+            <a class="" href="#" onclick="this.focus()"><img class="" src="{% static 'images/nutri_chart.png' %}"
+                    width="397px" height="84px" />
+            </a>
+        </div>
+        <div class="ShowOnMobile py-5">
+            <div class="row">
+                <div class="col-6 col-md-4">
+                    <h1 style="font-size: 20px;">{{mainproduct.product_name}}</h1>
+                    <p class="text-content" style="font-size: 12px;">{{mainproduct.product_description|slice:":250"}}</p>
+                    <h2 style="font-size: 17px;"><b>Rs. {{mainproduct.product_price}}
+                            ({{mainproduct.product_quantity_per_serving_kgs}} gm)</b></h2>
+
+                    <div class="container-fluid text-center">
+                        <img class="img-responsive prodellipse text-center" src="{% static 'images/circle.png' %}">
+                        <img class="img-responsive prodimg text-center" src="/media/{{mainproduct.product_image}}">
+
+                        <a class=""  onclick="this.focus()">
+                            <img class="icon_cart_fav shadow" src="{% static 'images/fav_icon.png' %}" width="50"
+                                height="50" />
+                        </a>
+                        <input id="{{mainproduct.id}}" class="icon_minus_cart shadow" type="image" src="{% static 'images/minus_cart.png' %}" width="50" height="50" onclick=minus_m(event,{{mainproduct.id}}) >
+                        
+                        <input id="{{mainproduct.id}}" class="icon_plus_cart shadow cart" type="image" src="{% static 'images/plus_cart.png' %}" width="50" height="50" onclick=plus_m(event,{{mainproduct.id}}) >
+
+                        <a class="cart" onclick=add_to_cart(event,{{mainproduct.id}})>
+                            <img class="icon_prod_page_cart shadow" src="{% static 'images/prod_page_cart.png' %}"
+                                width="50" height="50" />
+                        </a>
+                    </div>
+                    <!--<div class="container py-3">
+                        <a class="" href="#" onclick="this.focus()">
+                            <img class="icon-round shadow" src="{% static 'images/big_cart_icon.png' %}" width="50"
+                                height="50" />
+                        </a>
+                    </div>
+                    <div class="container py-3">
+                        <a class="" href="#" onclick="this.focus()">
+                            <img class="icon-round shadow" src="{% static 'images/Recipies.png' %}" width="50"
+                                height="50" />
+                        </a>
+                    </div>-->
+                </div>
+                <div class="col-6 col-md-4 slide-wrapper" style="z-index: 0;">
+                    <div id="myCarousel" class="carousel slide" data-interval="false">
+                        <!-- Indicators -->
+                        <ul class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            {% for i in range %}
+                            <li data-target="#myCarousel" data-slide-to="{{i}}"></li>
+                            {% endfor %}
+                        </ul>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                {% for i in product %}
+                                <div class="col-md-3 mb-5 ">
+                                    <div class="card border-1" style="height: 134px;width: 101px;">
+                                        <div class="cardimg text-center">
+                                            <a href="/product/{{i.id}}">
+                                                <img class="card-img-top card_img" src="/media/{{i.product_image}}"
+                                                alt="Card image cap">
+                                            </a>
+                                        </div>
+                                        <div class="card-body">
+                                            <h4 class="card-title  text-left" style="font-size: x-small;"><a
+                                                    class="card-title-a"
+                                                    href="/product/{{i.id}}">{{i.product_name}}</a></h4>
+                                            <hr class="card-title-hr">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <p id="rcorners2" class="shadow">{{i.product_quantity_per_serving_gms }} gm</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <a class="" href="/product/{{i.id}}">
+                                                        <img class="card-img-top text-right our-fav shadow"
+                                                            src="{% static 'images/fav_our.png' %}"
+                                                            alt="Card image cap">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <p class="price_pro">Rs.{{ i.product_price }}</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    {% if i|cart_prod_quantity:request.session.cart >= 1 %}
+                                                        <input id="{{i.id}}" class="cart mob_plus shadow" type="image" src="{% static 'images/plus_cart.png' %}"
+                                                                width="40" height="40" onclick=plus_m(event,{{i.id}}) style="z-index: 998;">
+                                                        
+                                                        <p id ="QM-{{i.id}}" class="inline_cartinput" style="text-align:center;margin-bottom: 0rem;"><b>{{  i|cart_prod_quantity:request.session.cart }}</b></p>
+                                                        
+                                                        <input id="{{i.id}}" class="cart mob_minus shadow" type="image" src="{% static 'images/minus_cart.png' %}"
+                                                                width="40" height="40" onclick=minus_m(event,{{i.id}}) style="z-index: 998;">
+                                                        
+                                                    {% else %}
+                                                    <input id="{{i.id}}" class="cart mob_cart shadow" type="image" src="{% static 'images/cart_icon.png' %}" onclick=add_to_cart(event,{{i.id}}) >
+                                                    
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+                            
+                            </div>
+                            <div class="carousel-item">
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                {% if cart_items >= 1 %}
+                <div class="container fixed justify-content-center align-items-center" style="background-color: #044D40;height:52px;position: fixed;
+                bottom: 0;
+                right: 0;
+                width: 100%;z-index: 1000;color: #ffffff;padding: 18px; ">
+                    <span style="float:left;font-size: 11px;"><img src="{% static 'images/shopping-cart.png' %}" alt="">&nbsp;&nbsp;&nbsp;<b id="cart_items">{{cart_items}}</b> item RS. <b id="Total_Money">{{prod_cat|total_cart_price:request.session.cart}}</b></span>
+                    
+                        <a href="{% url 'cart' %}">
+                            <span style="float:right;color:#ffffff;font-size: 10px; font-family: 'Montserrat', sans-serif;"><span style="">View Cart</span><span style="font-size:12px;">&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right " aria-hidden="true">
+                            </i></span></span>
+                        </a>
+                    
+                    
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="container py-1"></div>
+    <!--- Start Footer -->
+    <footer id="page-wrap" style="background-color: #06C2A1!important;bottom: -85px;">
+        <div class="container contactitem">
+            <div class="row text-center py-2">
+                <div class="col-lg-3">
+                    <a class="navbar-brand brand_name_footer" href="{% url 'home' %}"><img
+                            src="{% static 'images/logoHomepage.png' %}"></a></br>
+                    <a class="btn-sm" href="#"
+                        onclick=" window.open('https://www.facebook.com/greebanfresh','_blank')"><img
+                            src="{% static 'images/facebook.png' %}"></a>
+                    <a class="btn-sm" href="#"
+                        onclick=" window.open('https://www.instagram.com/greebanfresh/','_blank')"><img
+                            src="{% static 'images/Instagram.png' %}"></a>
+                </div>
+                <div class="col-lg-2 col-md-6 mt-4 mt-lg-0 pt-4 pl-5">
+                    <ul class="text-left footerlink">
+                        <li>
+                            <a class="alink" routerlink="/" href="/">
+                                <span>Home</span></a>
+                        </li>
+                        <li>
+                            <a class="alink" routerlink="/" href="/recipe/">
+                                <span>Recipe</span></a>
+                        </li>
+                        <li>
+                            <a class="alink" routerlink="/" href="/about/">
+                                <span>About Us</span></a>
+                        </li>
+                        <!--<li>
+                            <a class="alink" routerlink="/" href="/contact-us.php">
+                                <span>Contact Us</span></a>
+                        </li>-->
+                    </ul>
+                </div>
+                <div class=" col-lg-15 pt-4 pl-5">
+                    <ul class="text-left footerlink">
+                        <li>
+                            <a class="alink" href="mailto:info@greeban.com" target="_blank">
+                                <span>Email: info@greeban.com</span></a>
+                        </li>
+                        <li>
+                            <span class="alink">Mob: +91 96195 23516, +91 98204 39007</span>
+                        </li>
+                        <li>
+                            <a class="alink" routerlink="/" href="/privacypolicy/">
+                                <span>Privacy Policy</span></a>
+                        </li>
+                        <li>
+                            <a class="alink" routerlink="/" href="/termsandcondi/">
+                                <span>Terms & Conditions</span></a>
+                        </li>
+                        <li>
+                            <a class="alink" routerlink="/" href="/returnpolicy/">
+                                <span>Return Policy</span></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <!--- End of Row -->
+            <div class="footer-copyright text-center py-3">Copyright © 2021 | Greeban Fresh Private Limited </a>
+            </div>
+        </div>
+        <!--- End of Container -->
+    </footer>
+    <!--- End of Footer -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script  type="text/javascript">
+        $(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() < 200) {
+                    $('.navbar .container-fluid .navbar-brand img').attr('src', "{% static 'images/logoHomepage.png' %}");
+                    $('.navbar .container-fluid .navbar-brand img').css('height', '');
+                }
+                if ($(this).scrollTop() > 200) {
+                    $('.navbar .container-fluid .navbar-brand img').attr('src', "{% static 'images/logoWeb.png' %}");
+                    $('.navbar .container-fluid .navbar-brand img').css('height', '65px');
+                }
+            })
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (window.matchMedia("(max-width: 768px)").matches) {
+                $(".navsearch").focus(function () {
+                    $('#navlogo').hide();
+                    $('#recipe-icon').hide();
+                    $('#cart-icon').hide();
+                    $('#acc-icon').hide();
+                    //return false;
+                });
+
+
+                $('.navsearch').blur(function () {
+                    if (!$(this).val()) {
+                        $('#navlogo').show('slow');
+                        $('#recipe-icon').show('slow');
+                        $('#cart-icon').show('slow');
+                        $('#acc-icon').show('slow');
+                    }
+                });
+            }
+
+
+        });//end
+    </script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 50,
+            autoplayHoverPause: true,
+            autoplay: false,
+            nav:true,
+            navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 3
+                },
+                1025: {
+                    items: 4
+                }
+            }
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js" integrity="sha512-Meww2sXqNHxI1+5Dyh/9KAtvI9RZSA4c1K2k5iL02oiPO/RH3Q30L3M1albtqMg50u4gRTYdV4EXOQqXEI336A==" crossorigin="anonymous"></script>
+  <button id="login" type="button" class="btn btn-light d-none" data-toggle="modal" data-target="#modellogin">
+    Web Login
+  </button>
+  <div class="modal fade" id="modellogin" tabindex="-1" role="dialog" aria-labelledby="modelloginTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float: left">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="text-center py-3">
+            <img src="{% static 'images/model_login.png' %}" alt="" width="150" height="150" style="">
+          </div>
+          <div class="text-center form_model">
+            <h3 style="font-weight:bold;margin: 10px;">Greeban Fresh </h3>
+            <h5 >welcomes you!</h5>
+            <p>Enter Your Mobile Number</p>
+            <form class="text-center">
+              <input type="tel" class="form-control model_input" id="inputmobile" placeholder="">
+              <p>OR</p>
+              <p>Enter Your Email ID</p>
+              <input type="email" class="form-control model_input" id="inputemail" placeholder="">
+            </form>
+            <button type="button" class="btn btn-light btn-success btn-model" onclick="sendMail()" data-toggle="modal" data-dismiss="modal" data-target="#modelverification">
+              Confirm And Proceed
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Web Email verification Modal -->
+  <div class="modal fade" id="modelverification" tabindex="-1" role="dialog" aria-labelledby="modelverificationTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float: left">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="text-center py-3">
+            <img src="{% static 'images/verify_img.png' %}" alt="" width="150" height="150" style="">
+          </div>
+          <div class="text-center form_model">
+            <h3 style="font-weight:bold;margin: 10px;color:#044D40">Verification Code</h3>
+            <p>Please enter the code sent on
+              ka*****21**@gmail.com</p>
+            <p id="emailVerificationNotification"></p>
+            <form class="text-center">
+              <div id="divOuter">
+                <div id="divInner">
+                  <input id="partitioned" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  onKeyPress="if(this.value.length==4) return false;"/>
+                </div>
+              </div>
+              <div style="margin-top: 10px;">
+              <a href="" class="">Resend Code</a>
+            </div>
+            </form>
+            <div style="margin-top: 30px;">
+            <button type="button" class="btn btn-light btn-success btn-model" onclick="verifyOtp()" data-dismiss="modal" data-target="#">
+              Verify
+            </button>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    $("#RecomRecipies").click(function(){
+        $("#RecomProd").removeClass("active");
+      });
+  </script>
+
+</body>
+
+</html>

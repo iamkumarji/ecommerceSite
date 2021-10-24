@@ -1,0 +1,797 @@
+body {
+    background-color: hsl(0, 0%, 100%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: hsl(0, 0%, 30%);
+}
+
+.box-element {
+    box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 10px;
+}
+#anchorProceedBtn{
+    text-decoration: none;
+}
+.thumbnail {
+    width: 100%;
+    height: 200px;
+    -webkit-box-shadow: -1px -3px 5px -2px rgba(214, 214, 214, 1);
+    -moz-box-shadow: -1px -3px 5px -2px rgba(214, 214, 214, 1);
+    box-shadow: -1px -3px 5px -2px rgba(214, 214, 214, 1);
+}
+
+.product {
+    border-radius: 0 0 4px 4px;
+}
+
+/*  */
+
+.my-nav {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 15%;
+}
+
+.navsearch {
+    position: relative;
+    display: block;
+    margin: 0 0 0 auto;
+    width: 5px;
+    outline: none !important;
+    border-color: transparent !important;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: transparent;
+    height: 30px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 12px 20px 12px 0px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.navsearch:focus {
+    z-index: 10;
+    width: 100%;
+    color: black;
+    background-position: right center;
+    border-color: transparent transparent green transparent !important;
+}
+
+/* nav bar css for bottom rounded*/
+
+.bg-dark {
+    background-color: #06C2A1!important;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+/* nav bar a tag image width css
+a img{
+    width: 153px;   
+    margin-left: 1%; 
+}
+*/
+
+#cart-icon {
+    width: 40px;
+    display: inline-block;
+    margin-left: 40px;
+    margin-right: 20px;
+}
+
+#recipe-icon {
+    width: 35px;
+    display: inline-block;
+    margin-left: 25px;
+}
+
+#acc-icon {
+    width: 35px;
+    display: inline-block;
+    margin-left: 25px;
+    margin-right: 50px;
+}
+
+.img_recipe {
+    width: 100%;
+}
+
+/*
+start css for footer
+*/
+
+.brand_name_footer {
+    color: black!important;
+    text-decoration: none;
+    font-family: RobotoCondensed-Regular;
+    width: 40px;
+    font-size: 30px;
+    box-align: center;
+    margin-right: 140px
+}
+
+.footerlink {
+    list-style: none;
+}
+
+.alink {
+    display: block;
+    color: rgba(255, 255, 255, .85);
+    font-size: 16px;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+ul.footerlink li a, ul.footerlink li a:visited {
+    color: #FFFFFF !important;
+}
+
+ul.footerlink li a:hover, ul.footerlink li a:active {
+    color: #FFFFFF !important;
+}
+
+ul.footerlink li.active a {
+    color: #FFFFFF !important;
+}
+
+/*
+end css for footer
+*/
+
+/*
+Product center image Css
+*/
+
+/* small device less than 321px width */
+
+@media (max-width: 320px) {
+    /* navbar css shadow */
+    .my-nav {
+        background-color:#fff !important;
+        box-shadow: 0 4px 2px -2px rgba(0,0,0,.2) !important;
+        height: 10% !important;
+    }
+    /* navbar css*/
+    .navsearch:focus {
+        width: 85vw !important;
+    }
+    .navbar-brand img {
+        height: 40px !important;
+        left: -45px;
+    }
+    .pl-5, .px-5 {
+        padding-top: 0px !important;
+        padding-bottom: 10px !important;
+        padding-left: 0rem !important;
+    }
+    .pr-5, .px-5 {
+        padding-right: 0rem!important;
+    }
+    .pb-5, .py-5 {
+		padding-bottom: 1.5rem!important;
+	}
+	.pt-5, .py-5 {
+		padding-top: 1.5rem!important;
+	}
+    #recipe-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+    }
+    #cart-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #acc-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    /* navbar css end*/
+    .checkpay .checkadd {
+        padding-left: 0.7rem !important;
+        padding-right: 1.6rem !important;
+    }
+    .m_cart {
+        padding-left: 0rem;
+    }
+    .m_font {
+        font-size: 6.5px !important;
+        font-weight: bold;
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+    }
+    .mh5_font {
+        font-size: 12px;
+        margin-left: -16px;
+    }
+    .mimg_prod {
+        max-width: 67px;
+        max-height: 72px;
+    }
+    .prd_cnt {
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .cardwidth {
+        margin-top:10px;
+        width: 270px !important;
+        background-color: #3FA690;
+    }
+
+    .cart_img_border {
+        width: fit-content;
+        margin: auto;
+    }
+    .pb-5, .py-5 {
+        padding-bottom: 0.5rem!important;
+    }
+    
+    .pt-5, .py-5 {
+        padding-top: 0.5rem!important;
+    }
+}
+
+/* small device less than 360px and greater than 321px width */
+
+@media (min-width: 321px) and (max-width: 360px) {
+    /* navbar css shadow */
+    .my-nav {
+        background-color:#fff !important;
+        box-shadow: 0 4px 2px -2px rgba(0,0,0,.2) !important;
+        height: 10% !important;
+    }
+    /*navbar css */
+    .navbar-brand img {
+        height: 45px !important;
+        left: -45px;
+    }
+    .navsearch:focus {
+        width: 85vw !important;
+    }
+    .pl-5, .px-5 {
+        padding-left: 0rem!important;
+    }
+    .pr-5, .px-5 {
+        padding-right: 0rem!important;
+    }
+    .pb-5, .py-5 {
+		padding-bottom: 1.5rem!important;
+	}
+	.pt-5, .py-5 {
+		padding-top: 1.5rem!important;
+	}
+    #recipe-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+    }
+    #cart-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #acc-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    /*navbar css end*/
+    .checkpay .checkadd {
+        padding-left: 1.0rem !important;
+        padding-right: 1.6rem !important;
+    }
+    .m_cart {
+        padding-left: 0rem;
+    }
+    .m_font {
+        font-size: 8px;
+        font-weight: bold;
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+        font-size: xx-small !important;
+    }
+    .mh5_font {
+        font-size: 12px;
+        margin-left: -16px;
+    }
+    .mimg_prod {
+        max-width: 67px;
+        max-height: 50%;
+    }
+    .cardwidth{
+        margin-top:10px;
+        width: 100% !important;
+    }
+    .cart_img_border {
+        width: fit-content;
+        margin: auto;
+    }
+    .container-fluid {
+		padding-top: 0px !important;
+		padding-bottom: 0px !important;
+	}
+    .pb-5, .py-5 {
+        padding-bottom: 0.5rem!important;
+    }
+    
+    .pt-5, .py-5 {
+        padding-top: 0.5rem!important;
+    }
+}
+
+/*  below media query for iphone5,X,galaxy5 motog4 device*/
+
+@media (min-width: 361px) and (max-width: 376px) {
+    /* navbar css shadow */
+    .my-nav {
+        background-color:#fff !important;
+        box-shadow: 0 4px 2px -2px rgba(0,0,0,.2) !important;
+        height: 10% !important;
+    }
+    /*navbar css */
+    .navbar-brand img {
+        height: 45px !important;
+        left: -45px;
+    }
+    .navsearch:focus {
+        width: 85vw !important;
+    }
+    .pl-5, .px-5 {
+        padding-left: 0rem!important;
+    }
+    .pr-5, .px-5 {
+        padding-right: 0rem!important;
+    }
+    
+    #recipe-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+    }
+    #cart-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #acc-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .container-fluid {
+		padding-top: 0px !important;
+		padding-bottom: 0px !important;
+	}
+    /*navbar css end*/
+    .checkpay .checkadd {
+        padding-left: 1.9rem !important;
+        padding-right: 1.6rem !important;
+    }
+    .m_cart {
+        padding-left: 0rem;
+    }
+    .m_font {
+        font-size: 8px !important;
+        font-weight: bold;
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+    }
+    .mh5_font {
+        font-size: 12px;
+        margin-left: -16px;
+    }
+    .mimg_prod {
+        max-width: 67px;
+        max-height: 50%;
+    }
+    .cardwidth{
+        margin-top:10px;
+        width: 300px !important;
+    }
+    .cart_img_border {
+        width: fit-content;
+        margin: auto;
+    }
+    .pb-5, .py-5 {
+        padding-bottom: 0.5rem!important;
+    }
+    
+    .pt-5, .py-5 {
+        padding-top: 0.5rem!important;
+    }
+}
+
+/* common css query for min-width 320px to max 426px vertical carousel*/
+
+@media (min-width: 377px) and (max-width: 426px) {
+    /* navbar css shadow */
+    .my-nav {
+        background-color:#fff !important;
+        box-shadow: 0 4px 2px -2px rgba(0,0,0,.2) !important;
+        height: 10% !important;
+    }
+    /*navbar css */
+    .navbar-brand img {
+        height: 45px !important;
+        left: -45px;
+    }
+    .navsearch:focus {
+        width: 85vw !important;
+    }
+    .pr-5, .px-5 {
+        padding-right: 0rem!important;
+    }
+    .pl-5, .px-5 {
+        padding-left: 0rem !important;
+    }
+    .pb-5, .py-5 {
+		padding-bottom: 1.5rem!important;
+	}
+	.pt-5, .py-5 {
+		padding-top: 1.5rem!important;
+	}
+    .container-fluid {
+		padding-top: 0px !important;
+		padding-bottom: 0px !important;
+	}
+    #recipe-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+    }
+    #cart-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #acc-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    /*navbar css end*/
+    .checkpay .checkadd {
+        padding-left: 3.6rem !important;
+        padding-right: 3.6rem !important;
+    }
+    .m_cart {
+        padding-left: 0rem;
+    }
+    .m_font {
+        font-size: 8px !important;
+        font-weight: bold;
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+    }
+    .mh5_font {
+        font-size: 12px;
+        margin-left: -16px;
+    }
+    .mimg_prod {
+        max-width: 67px;
+        max-height: 50%;
+    }
+    .cardwidth{
+        margin-top:10px;
+        width: 370px !important;
+    }
+    .cart_img_border {
+        width: fit-content;
+        margin: auto;
+    }
+    .pb-5, .py-5 {
+        padding-bottom: 0.5rem!important;
+    }
+    
+    .pt-5, .py-5 {
+        padding-top: 0.5rem!important;
+    }
+}
+
+@media (min-width: 427px) and (max-width: 769px) {
+    /* navbar css shadow */
+    .my-nav {
+        background-color:#fff !important;
+        box-shadow: 0 4px 2px -2px rgba(0,0,0,.2) !important;
+        height: 9% !important;
+    }
+    .container-fluid {
+        padding-top: 0px !important;
+        padding-bottom: 30px;
+        position: relative;
+    }
+    /*navbar css */
+    .navbar-brand img {
+        height: 45px !important;
+        left: -45px;
+    }
+    .navsearch:focus {
+        width: 80vw !important;
+    }
+    /*navbar css end*/
+    .checkpay .checkadd {
+        padding-left: 1.6rem !important;
+        padding-right: 1.6rem !important;
+    }
+    .card {
+        margin-left: 20px;
+    }
+    .mh5_font {
+        margin-left: -16px;
+    }
+    .cardwidth{
+        margin-top:10px;
+        width: 310px !important;
+    }
+    .cart_img_border {
+        width: fit-content;
+        margin: auto;
+    }
+    .pb-5, .py-5 {
+        padding-bottom: 0.5rem!important;
+    }
+    
+    .pt-5, .py-5 {
+        padding-top: 0.5rem!important;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 2560px) {
+    .cardwidth{
+        margin-top:10px;
+        width: 270px !important;
+    }
+}
+.container-fluid {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    position: relative;
+}
+
+/* mobile view right side slider card qty and plus minus button css*/
+
+.qtyplisminus {
+    position: relative;
+    top: 0;
+    bottom: 0;
+}
+
+.form-control {
+    border-radius: 0;
+    border-color: #ccc;
+    border-width: 0 0 2px 0;
+    border-style: none none solid none;
+    box-shadow: none;
+    height: calc(0.5em + .75rem + 2px) !important;
+    background-color: #3FA690;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    background-color: #3FA690;
+}
+
+.cardwidth {
+    width: 225px;
+    background-color: #3FA690;
+}
+
+.qtyplus:hover, .qtyminus:hover {
+    box-shadow: none;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border-style: none none none none;
+    background-color: #06C2A1!important;
+}
+
+.qtyplus:active, .qtyminus:active {
+    box-shadow: none;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border-style: none none none none;
+    transform: scale(1.5);
+    outline: none !important;
+    background-color: #06C2A1!important;
+}
+
+.form-group, label {
+    color: #fff;
+}
+
+.list-group {
+    background-color: #3FA690;
+}
+
+.list-group-item {
+    color: #fff;
+    background-color: #3FA690;
+}
+
+.m_underline {
+    text-decoration: underline;
+    text-underline-position: under;
+    text-underline-offset: 10px;
+    width: fit-content;
+}
+
+.card{
+    border:#fff;
+}
+/*end of mobile view right side slider card qty and plus minus button css*/
+
+/* remove outline for cart plus minus button*/
+.qtyplus, .qtyplus:hover, .qtyplus:active, .qtyplus:visited, .qtyplus:focus {
+    outline: none !important;
+}
+
+.qtyminus, .qtyminus:hover, .qtyminus:active, .qtyminus:visited, .qtyminus:focus {
+    outline: none !important;
+}
+
+/* Total button css*/
+.total_btn{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.btn_tt {  
+    display:block;
+    padding:10px;
+    background-color:#004738;
+    border-radius:5px;
+    position:relative;
+    width:100%;
+    text-align:center;
+}
+.btn-img {
+    position: absolute;
+    width:45px;
+    display:block;
+    margin:0 auto;
+ }
+ .btn-text {
+   text-transform:uppercase;
+   font-size:12px;
+   color:#fff;
+ }
+
+ .checkadd{
+     display:none;
+ }
+
+ .checkpay{
+    display:none;
+}
+
+ .showadd{
+     display:block;
+ }
+
+ .mh5_font{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    color: #000000;
+ }
+
+ .cart_img_border {
+    border: 1.5px solid #3FA690;
+    max-width: 92px;
+    max-height: 90px;
+    margin: auto;
+}
+.mimg_prod {
+    top: 0%;
+    max-height: 80px;
+    max-width: 82px;
+}
+
+.m_font{
+    font-size:small;
+}
+
+@media (min-width: 321px) and (max-width: 769px) {
+    .cart_img_border {
+        max-width: 64px !important;
+        max-height: 65px !important;
+    }
+    .mimg_prod {
+        max-height: 59px !important;
+        max-width: 60px !important;
+    }
+    #page-wrap{
+        position: unset !important;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 769px) {
+    #page-wrap{
+        position: unset !important;
+    }
+    #recipe-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+    }
+    #cart-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #acc-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@media (min-width: 2560px){
+    .my-nav {
+        height: 5% !important;
+    }
+}
+
+
+@media (min-width: 320px) and (max-width: 769px) {
+    .form-group label{
+        color: #3FA690;
+    }
+
+    .form-control {
+        border-color: #3FA690 !important;
+        background-color: transparent;
+    }
+    .form-control:focus {
+        box-shadow: none;
+        background-color: #fff;
+    }
+
+    .cardwidth{
+        background-color: transparent;
+    }
+
+    #addres{
+        color: #3FA690 !important;
+    }
+    #addres_time{
+        width: 100% !important;
+    }
+    #cart_timeline{
+        width: 80% !important;
+    }
+    .brand_name_footer {
+        margin-right: 50px;
+    }
+}
+
+.ui-menu-item-wrapper{
+    color: black;
+    background-color:#fff;
+  }
+  #ui-id-1{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }

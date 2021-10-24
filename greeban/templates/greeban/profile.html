@@ -1,0 +1,104 @@
+{% extends 'greeban/main_cart.html' %}
+{% load cartdata %}
+{% load static %}
+{% load mathfilters %}
+{% block extrahead %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+    {% endblock %}
+{% block navbar %}
+    <a class="" href="{% url 'recipe' %}" data-toggle="tooltip" data-placement="bottom" title="Recipes">
+        <img id="recipe-icon" src="{% static 'images/recipi_prod.png' %}">
+    </a>
+    <a class="" href="{% url 'cart' %}" data-toggle="tooltip" data-placement="bottom" title="Cart">
+        <img id="cart-icon" src="{% static 'images/cart_green.png' %}">
+    </a>
+    <a class="" href="#" onclick="goToProfile()" data-toggle="tooltip" data-placement="bottom" title="Account">
+        <img id="acc-icon" src="{% static 'images/user_page_icon.png' %}">
+    </a>
+{% endblock %}
+{% block content %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+    <script src="{% static 'js/home.js' %}"></script>
+</head>
+
+<div>
+    <div class="d-flex flex-wrap">
+        <div class="card" style="width: 22rem; border: 1px solid black;padding: 1rem;">
+            <h1 class="card-title" style="color:#06C2A1">ACTIVITY</h1>
+            <h3 class="activities total_b" onclick="getUserInfo()" style="font-size: 16px;"><img src="{% static 'images/user_prod.png' %}" width="20" height="20"> Your Profile</h3>
+            <h3 class="activities_disabled" disabled style="font-size: 16px;"><img src="{% static 'images/your_order.png' %}" width="20" height="26"> Your Orders</h3>
+            <h3 class="activities_disabled" style="font-size: 16px;"><img src="{% static 'images/track.png' %}" width="20" height="26"> Track your Order</h3>
+            <h3 class="activities_disabled" style="font-size: 16px;"><img src="{% static 'images/bookmark_recp.png' %}" width="20" height="26"> Bookmarked Recipies</h3>
+            <h3 class="activities_disabled" style="font-size: 16px;"><img src="{% static 'images/subscribe.png' %}" width="20" height="19"> Your Subscription</h3>
+            <h3 class="activities_disabled" style="font-size: 16px;"><img src="{% static 'images/payment.png' %}" width="20" height="21"> Payment</h3>
+            <h3 class="activities_disabled" style="font-size: 16px;"><img src="{% static 'images/address.png' %}" width="22" height="22"> Manage Address Book</h3>
+            <h3 class="activities_disabled" style="font-size: 16px;"><img src="{% static 'images/rewards.png' %}" width="20" height="26"> Manage Rewards</h3>
+            <h3 class="activities total_b2" onclick="logout()">Logout</h3>
+
+        </div>
+        <div class="right-div">
+        <div style="padding: 1rem" class="checkadd">
+            <div class="card shadow " style="background-color:#3FA690;">
+                <div class="card-body">
+                    <form>
+                        <h5 class="mb-3" style="color:#fff;">Profile Details</h5>
+        
+                        <div class="form-group">
+                            <label for="fullname">Full Name</label>
+                            <input type="text" class="form-control" id="fullname">
+                            <!-- <div id="profile_fullname">Hello</div> -->
+                        </div>
+                        <div class="form-group">
+                            <label for="phonenumber">Phone Number</label>
+                            <input type="tel" class="form-control" id="phonenumber">
+                        </div>
+                        <div class="form-group">
+                            <label for="emailid">Email Address</label>
+                            <input type="email" class="form-control" id="emailid">
+                        </div>
+                        <div class="form-group">
+                            <label for="pincode">Pin</label>
+                            <input type="number" class="form-control col-sm-6 col-6" id="pincode">
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col">
+                                <div class="form-outline">
+                                    <label class="form-label" for="state">State</label>
+                                    <input type="text" id="state" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-outline">
+                                    <label class="form-label" for="city">City</label>
+                                    <input type="text" id="city" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" id="address">
+                        </div>
+        
+                        <a id="checkout" onclick="onAddrressSubmit()"
+                            class="btn btn-primary btn-block waves-effect waves-light">Update Profile Details</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        </div>
+        </div>
+        <div>
+    </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('.total_b').click(function () {
+                $(".checkadd").toggleClass("showadd");
+            });
+        });
+    </script>
+{% endblock content %}

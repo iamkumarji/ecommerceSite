@@ -1,0 +1,49 @@
+{% extends 'greeban/main_cart.html' %}
+{% load cartdata %}
+{% load static %}
+{% load mathfilters %}
+{% block extrahead %}
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock %}
+{% block navbar %}
+    <a class="" href="{% url 'recipe' %}" data-toggle="tooltip" data-placement="bottom" title="Recipes">
+        <img id="recipe-icon" src="{% static 'images/recipi_prod.png' %}">
+    </a>
+    <a class="" href="{% url 'cart' %}" data-toggle="tooltip" data-placement="bottom" title="Cart">
+        <img id="cart-icon" src="{% static 'images/cart_green.png' %}">
+    </a>
+    <a class="" href="#" onclick="goToProfile()" data-toggle="tooltip" data-placement="bottom" title="Account">
+        <img id="acc-icon" src="{% static 'images/user_prod.png' %}">
+    </a>
+{% endblock %}
+{% block content %}
+<div class="container py-2"></div>
+<div class="container text-left">
+			<h1>Privacy Policy</h1></br>
+			<h3>Personal Information</h3>
+			<p>Greeban Fresh Pvt Ltd (“GFPL”) is the licensed owner of the brand and the website www.greeban.com (”The Site”). GFPL respects your privacy. This Privacy Policy provides succinctly the manner your data is collected and used by GFPL on the Site. As a visitor to the Site/ Customer, you are advised to please read the Privacy Policy carefully. By accessing the services provided by the Site you agree to the collection and use of your data by GFPL in the manner provided in this Privacy Policy.</p>
+			<h3>Use and Disclosure</h3>
+			<p>GFPL will not use your financial information for any purpose other than to complete a transaction with you. GFPL does not rent, sell or share your personal information and will not disclose any of your personally identifiable information to third parties. In cases where it has your permission to provide products or services, you've requested and such information is necessary to provide these products or services with the information may be shared with GFPL’s business associates and partners. GFPL may, however, share consumer information on an aggregate with its partners or third parties where it deems necessary. In addition, GFPL may use this information for promotional offers, to help investigate, prevent or take action regarding unlawful and illegal activities, suspected fraud, potential threat to the safety or security of any person, violations of the Site’s terms of use or to defend against legal claims; special circumstances such as compliance with subpoenas, court orders, requests/order from legal authorities or law enforcement agencies requiring such disclosure.</p>
+			<h3>Security Measures</h3>
+			<p>To protect your personal information, we take reasonable precautions and follow industry best practices to make sure it is not inappropriately lost, misused, accessed, disclosed, altered or destroyed.GFPL servers are accessible only to authorized personnel and your information is shared with employees and authorised personnel on a need to know basis to complete the transaction and to provide the services requested by you. Although GFPL will endeavour to safeguard the confidentiality of your personally identifiable information, transmissions made by means of the Internet cannot be made absolutely secure. By using this site, you agree that GFPL will have no liability for disclosure of your information due to errors in transmission or unauthorized acts of third parties.</p>
+			<h3>Policy updates</h3>
+			<p>GFPL reserves the right to change or update this policy at any time. Such changes shall be effective immediately upon posting to the Site.</p>
+			<h3>Contact Information</h3>
+			<p>377(A), Om Shiv Sai Ram CHS,3rd floor, JSS road, Chira Bazar,near Thakurdwar  PO,opp. Shree Banquet Hall,Mumbai 400002</br>
+Phone : +91 96195 23516 ; +91 98204 39007</br>
+Email : info@greeban.com
+</p>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+{% if range == 0 %}
+<script>
+$(document).ready(function(){
+      $("#page-wrap").css("position", "fixed");
+      $("#page-wrap").css("width", "100%");
+  });
+
+</script>
+{% endif%}
+{% endblock %}

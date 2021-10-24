@@ -1,0 +1,247 @@
+{% extends 'greeban/main_cart.html' %}
+{% load cartdata %}
+{% load static %}
+{% load mathfilters %}
+{% block navbar %}
+    <a class="" href="{% url 'recipe' %}" data-toggle="tooltip" data-placement="bottom" title="Recipes">
+        <img id="recipe-icon" src="{% static 'images/recipi_prod.png' %}">
+    </a>
+    <a class="" href="{% url 'cart' %}" data-toggle="tooltip" data-placement="bottom" title="Cart">
+        <img id="cart-icon" src="{% static 'images/cart_icon.png' %}">
+    </a>
+    <a class="" href="#" onclick="goToProfile()" data-toggle="tooltip" data-placement="bottom" title="Account">
+        <img id="acc-icon" src="{% static 'images/user_prod.png' %}">
+    </a>
+{% endblock %}
+{% block content %}
+<br>
+<script src="{% static 'js/home.js' %}"></script>
+<!--Section: Block Content-->
+<section>
+    <form>
+        <!--Grid row-->
+        <div class="row">
+
+            <!--Grid column-->
+            <div class="col-lg-6">
+
+                <!-- Card -->
+                
+                <div class="card wish-list mb-3">
+                    <div class="card-body">
+                        {% if range == 0 %}
+                        <div class='row'>
+                            <h4>Your cart is empty</h4>
+                        </div>
+                        {% else %}
+                        <!-- <h5 class="mb-4"><span>{{length}}</span> items</h5> -->
+                        <div class="text-center">
+                            <img id="cart_timeline" src="{% static 'images/cart_timeline.png' %}" style="width:50%;" alt="">
+                        </div>
+                        {% for product in products %}
+                        <div class="row mb-4">
+                            <div class="col-md-4 col-lg-4 col-xl-4 col pt-2">
+                                <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0 text-center cart_img_border" style="border-color: #3FA690 !important;">
+                                    <img class="img-fluid mimg_prod" src="/media/{{ product.product_cart_image }}" alt="Romain" style="border-color: #3FA690;">
+
+                                </div>
+                                <div class="container pt-3 col">
+                                    <div class="row" style="justify-content: center;">
+                                        <div class="col-md-4 col-2 m_cart">
+                                                <input id="{{product.id}}" class="qtyminus cart" type="image"
+                                                    src="{% static 'images/minus.png' %}" width="16" height="16" onclick=minus2(event,{{product.id}}) />
+                                        </div>
+                                        <div class="col-md-4 col-2">
+                                            <p><b id="Q-{{product.id}}" class="text-center prd_cnt">{{ product|cart_prod_quantity:request.session.cart }}</b></p>
+                                        </div>
+                                        <div class="col-md-4 col-2">
+                                                <input id="{{product.id}}" type="image" class="qtyplus cart"
+                                                    src="{% static 'images/plus_green.png' %}" width="18" height="18" onclick=plus2(event,{{product.id}})>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 col-lg-8 col-xl-8 col">
+                                <div class="row" style="justify-content: left;">
+                                    <div class="px-3 col-lg-6 col">
+                                        <h5 class="mh5_font">{{product.product_name}}</h5>
+                                    </div>                                    
+                                </div>
+                                <hr style="background-color:#3FA690;margin-left: -1rem;">
+                                <div class="row px-5 m_font">
+                                    <div class="container col-md-3 col px-0">
+                                        <p class="px-0 m_font">Pack Size</p>
+                                        <p id="R-{{product.id}}" class="px-3 m_font m_underline"> {{ product|cart_prod_quantity:request.session.cart }} </p>
+                                    </div>
+                                    <div class="container col-md-3 col px-0">
+                                        <p class="px-0 m_font">Pack Wt</p>
+                                        <p class="px-3 m_font m_underline">{{product.product_quantity}}</p>
+                                    </div>
+                                    <div class="container col-md-3 col px-0">
+                                        <p class="px-0 m_font">Per Unit</p>
+                                        <p id="PerQuantityPrice-{{product.id}}" class="px-3 m_font m_underline" value={{product.product_price}}>
+                                            {{product.product_price}}</p>
+                                    </div>
+                                    <div class="container col-md-3 col px-0">
+                                        <p class="px-2 m_font">Total</p>
+                                        <p id="S-{{product.id}}" class="px-3 m_font m_underline">{{ product|price_total:request.session.cart }}</p>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% if not forloop.last %}
+                        <hr style="background-color:#004738;margin-bottom: 4rem;">
+                        {% endif %}
+
+                        {% endfor %}
+                        
+                    </div>
+                </div>
+
+    
+                <div class="text-center">
+                    <!-- <input class="total_btn" type="submit" value="Total: RS. {{ products|total_cart_price:request.session.cart }}" style="background: url({% static 'images/total_1.png' %}) no-repeat center center; width:100%; height:53px;color:#fff;">-->
+                    <a onclick=displaytotalinAdd() id="anchorProceedBtn" href="#proceedSectiion" type="button" class="total_b" style="background-color: #004738;color:#fff;width:100%; height:53px;padding: 10px;" >
+                        <span style="float:left;font-size:20px;">
+                            <i class="bi bi-wallet2">    
+                        </span></i> 
+                     Total Price : RS. <b id="Total_Money">{{products|total_cart_price:request.session.cart}}</b>
+                     
+                        <span style="float:right;font-size:20px;"><i class="fa fa-angle-right " aria-hidden="true">
+                        </i></span></a>
+                </div>
+                {% endif %}
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3" id="proceedSectiion">
+                <!-- Card  For Checkout Info-->
+                <!-- style="background-color:#3FA690" style="color:#fff;" -->
+                <div class="container checkadd">
+                    <div class="text-center">
+                        <img id="addres_time" src="{% static 'images/address_timeline.png' %}" style="width:120%;" alt="">
+                    </div>
+                    <div class="card mb-3 shadow cardwidth ">
+                            <div class="card-body" >
+                                <form id="proceedForm" name="proceedForm">
+                                    <h5 id="addres" class="mb-3" style="color:#fff;">Address Details</h5>                            
+
+                                    <div class="form-group">
+                                       <label for="fullname">Full Name</label>
+                                        <input type="text" class="form-control" id="fullname" name="fullname" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phonenumber">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phonenumber" name="phonenumber"  required pattern="[0-9]{10}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="emailid">Email Address</label>
+                                        <input type="email" class="form-control" id="emailid" autocapitalize="off" spellcheck="false" autocorrect="off" autocomplete="on" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pincode">Pin</label>
+                                        <input type="number" class="form-control col-sm-6 col-6" id="pincode" required>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label class="form-label" for="state">State</label>
+                                                <input type="text" id="state" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label class="form-label" for="city">City</label>
+                                                <input type="text" id="city" class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address">Address</label>
+                                        <input type="text" class="form-control" id="address" required>
+                                    </div>
+                                    <button id="checkout" type="submit" onclick="onAddrressSubmit(event)" class="btn btn-block waves-effect waves-light" style="background-color:#004738;color:#fff">Proceed</button>
+                                </form>
+                            </div>
+                    </div>
+            </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="container checkpay">
+
+                    <div class="card mb-3 shadow cardwidth padingcard">
+                        <form class="card-body" action="{% url 'checkout' %}" method="POST">
+                            {% csrf_token %}
+                            <!--<span id="price">{{products|final_cart_amount_incl_shipping:request.session.cart}}</span>-->
+                            
+                            
+                            <h5 class="mb-3" style="color:#fff;">Total Amount</h5>
+
+                            <ul class="list-group list-group-flush">
+                                <li
+                                    class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                    Amount
+                                    <span id = "Total_cart_price" >Rs. {{products|total_cart_price:request.session.cart}}</span>
+                                </li>
+                                <li  class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    Shipping Fees
+                                    <span id="shipping_fees">{{ products|shipping_fees:request.session.cart }}</span>
+                                </li>
+                                <li  class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    Discounts
+                                    <span id="discount">0</span>
+                                </li>
+                                <li
+                                    class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                    <div>
+                                        <strong>Promocode</strong>
+                                    </div>
+                                    <input type="text" id="promocode" class="form-control" name="promocode" style="    width: 80px;;">
+                                    <button href="#" id="applyPromotionsButton" type="button" style="background-color: transparent;border:none" onclick="applyPromotions()">Apply</button>
+                                    <button href="#" id="removePromotionsButton" type="button" style="display:none;background-color: transparent;border:none" onclick="removePromotions()">Remove</button>
+                                </li>
+                                <li
+                                    class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                    <div>
+                                        <strong>Total amount</strong>
+
+                                        <p class="mb-0">(Incl. GST)</p>
+
+                                    </div>
+                                    <span><strong id="final_cart_amount_incl_shipping" name="price">Rs. {{products|final_cart_amount_incl_shipping:request.session.cart}}</strong></span>
+                                </li>
+                            </ul>
+                            <input type="hidden" name="price" id="price" value="{{products|final_cart_amount_incl_shipping:request.session.cart}}">
+                            <button type="submit"  class="btn btn-primary btn-block waves-effect waves-light"
+                                style="background-color:#004738;border-color: #004738!important;">Checkout</button>
+                            
+                        </form>
+                    </div>
+                </div>  
+                </div>
+                <!-- Card -->
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+    </form>
+</section>
+<div class="container pb-5"></div>
+
+{% endblock content %}
+
+{% block scripts %}
+{% if range == 0 %}
+<script>
+$(document).ready(function(){
+      $("#page-wrap").css("position", "fixed");
+      $("#page-wrap").css("width", "100%");
+  });
+
+</script>
+{% endif%}
+{% endblock %}

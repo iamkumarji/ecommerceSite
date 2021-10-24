@@ -1,0 +1,87 @@
+{% extends 'greeban/main.html' %}
+{% load cartdata %}
+{% load static %}
+{% load mathfilters %}
+{% block navbar %}
+<a class="" href="{% url 'recipe' %}" data-toggle="tooltip" data-placement="bottom" title="Recipes">
+  <img id="recipe-icon" src="{% static 'images/recipi_prod.png' %}">
+</a>
+<a class="" href="{% url 'cart' %}" data-toggle="tooltip" data-placement="bottom" title="Cart">
+  <img id="cart-icon" src="{% static 'images/cart_green.png' %}">
+</a>
+<a class="" href="#" data-toggle="tooltip" data-placement="bottom" title="Account">
+  <img id="acc-icon" src="{% static 'images/user_prod.png' %}">
+</a>
+{% endblock %}
+{% block content %}
+<style>
+    .mimg_prod{
+        height: auto;
+        width: 100px;    
+    }
+    .razorpay-payment-button{
+        background-color:#3FA690;
+        color:#FFFFFF;
+    }
+</style>
+<div class="py-3"></div>
+<div class="text-center"> 
+    <img  src="{% static 'images/model_login.png' %}" />
+    <div class="container py-4">
+        <div class="card wish-list mb-3">
+            <div class="card-body">
+                {% for product in products %}
+                <div class="row mb-4">
+                    <div class="col-md-4 col-lg-4 col-xl-4 col pt-2">
+                        <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0 text-center cart_img_border" style="border-color: #3FA690 !important;">
+                            <img class="img-fluid mimg_prod" src="/media/{{ product.product_cart_image }}" alt="Romain" style="border-color: #3FA690;">                    </div>
+                    </div>
+                    <div class="col-md-8 col-lg-8 col-xl-8 col">
+                        <div class="row" style="justify-content: left;">
+                            <div class="px-3 col-lg-6 col">
+                                <h5 class="mh5_font">{{product.product_name}}</h5>
+                            </div>                                    
+                        </div>
+                        <hr style="background-color:#3FA690;margin-left: -1rem;">
+                        <div class="row px-5 m_font">
+                            <div class="container col-md-3 col px-0">
+                                <p class="px-0 m_font text-center">Pack Size</p>
+                                <p id="R-{{product.id}}" class="px-3 m_font m_underline"> {{ product|cart_prod_quantity:request.session.cart }} </p>
+                            </div>
+                            <div class="container col-md-3 col px-0">
+                                <p class="px-0 m_font text-center">Pack Wt</p>
+                                <p class="px-3 m_font m_underline">{{product.product_quantity}}</p>
+                            </div>
+                            <div class="container col-md-3 col px-0">
+                                <p class="px-0 m_font text-center">Per Unit</p>
+                                <p id="PerQuantityPrice-{{product.id}}" class="px-3 m_font m_underline" value={{product.product_price}}>
+                                    {{product.product_price}}</p>
+                            </div>
+                            <div class="container col-md-3 col px-0">
+                                <p class="px-2 m_font text-center">Total</p>
+                                <p id="S-{{product.id}}" class="px-3 m_font m_underline">{{ product|price_total:request.session.cart }}</p>
+                                </div>
+                        </div>
+                    </div>
+                </div>            
+                {% endfor %}        
+            </div>
+        </div>  
+    </div>
+    <form action="{% url 'success' %}" method="POST">
+        {% csrf_token %}
+        <h4>Total Price (Incl. GST & Shipping Fees): {{ amount }}</h4>
+        <h4>Order ID: {{payment_id}}</h4>
+        <h4>Order ID: {{promocode}}</h4>
+        <input type="hidden" name="promocode" value="{{promocode}}">
+    <script src="https://checkout.razorpay.com/v1/checkout.js" data-key="rzp_test_JPNRqEHyI2pb9v" data-amount="{{amount}}"
+        data-currency="INR" data-order_id="{{payment_id}}" data-buttontext="Proceed to Pay" data-name="Greeban"
+        data-description="Greeban Order" data-image="{% static 'images/logoWeb.png' %}" data-prefill.name=""
+        data-prefill.email="" data-theme.color="#3FA690">
+        </script>
+    </form>
+</div>
+
+
+{% endblock content %}
+

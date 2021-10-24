@@ -1,0 +1,44 @@
+{% extends 'greeban/main_cart.html' %}
+{% load cartdata %}
+{% load static %}
+{% load mathfilters %}
+{% block extrahead %}
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock %}
+{% block navbar %}
+    <a class="" href="{% url 'recipe' %}" data-toggle="tooltip" data-placement="bottom" title="Recipes">
+        <img id="recipe-icon" src="{% static 'images/recipi_prod.png' %}">
+    </a>
+    <a class="" href="{% url 'cart' %}" data-toggle="tooltip" data-placement="bottom" title="Cart">
+        <img id="cart-icon" src="{% static 'images/cart_green.png' %}">
+    </a>
+    <a class="" href="#" onclick="goToProfile()" data-toggle="tooltip" data-placement="bottom" title="Account">
+        <img id="acc-icon" src="{% static 'images/user_prod.png' %}">
+    </a>
+{% endblock %}
+{% block content %}
+<div class="container py-2"></div>
+<div class="container text-left">
+    <h1>Return Policy</h1></br>
+    <h3>Return</h3>
+    <p>Items supplied to customers should be returned only if it's checked on the doorstep in-front of our delivery personnel. In case of return due to quality defect or other problem please complain to us at +91 96195 23516 or +91 98204 39007 or mail us at info@greeban.com.</br>Please make sure you contact us before returning any item.</p>
+    <h3>Refund</h3>
+    <p>In case of returning any product we will deduct the item price and the new invoice amount is payable by you.</br>Refunds will be given in the same tender type as the original payment method.for online payments we will refund the amount in 2 business days.</br>Please note orders can not be refunded after our delivery personal leaves your premises.</p>
+    <h3>Cancellation</h3>
+    <p>Once order placed cannot be cancelled as the greens are grown on demand and confirmation of orders only. Incase of any situation wherein you need to cancel the order, please call us at “+91 96195 23516 or +91 98204 39007" or mail us at "info@greeban.com" with username and order details. If an order is dispatched you can not cancel it. We reserve rights to take the final decision on cancellation of your order.</br>If any goods returned do not adhere to the above policy, then we reserve the right to terminate our services to you.</p>
+    <h3>Contact Information</h3>
+  
+</div>
+{% endblock content %}
+
+{% block scripts %}
+{% if range == 0 %}
+<script>
+$(document).ready(function(){
+      $("#page-wrap").css("position", "fixed");
+      $("#page-wrap").css("width", "100%");
+  });
+
+</script>
+{% endif%}
+{% endblock %}

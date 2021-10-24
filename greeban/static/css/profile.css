@@ -1,0 +1,54 @@
+.activities{
+    padding: 0.5rem;
+}
+.activities:hover{
+    background-color:#06C2A1;
+    color:white
+}
+.activities_disabled{
+    padding: 0.5rem;
+    background-color: grey;
+    opacity: 0.2;
+}
+.activities_disabled:hover{
+  
+}
+@media (min-width: 320px) and (max-width: 769px) {
+    #recipe-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+    }
+    #cart-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #acc-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+.pb-5, .py-5 {
+    padding-bottom: 2rem!important;
+}
+
+.pt-5, .py-5 {
+    padding-top: 2rem!important;
+}
+.my-nav {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 9% !important;
+}
+}
+
+.my-nav {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 10%;
+}

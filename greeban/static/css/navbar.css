@@ -1,0 +1,245 @@
+/*main css for navbar*/
+
+.my-nav {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 15%;
+}
+
+.navsearch {
+    position: relative;
+    display: block;
+    margin: 0 0 0 auto;
+    width: 5px;
+    outline: none !important;
+    border-color: transparent !important;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: transparent;
+    height: 30px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 12px 20px 12px 0px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.navsearch:focus {
+    z-index: 10;
+    width: 100%;
+    color: white;
+    background-position: right center;
+    border-color: transparent transparent green transparent !important;
+}
+
+/*main css for navbar end here*/
+
+@media (max-width:321px) {
+    /* navbar css shadow */
+    .my-nav {
+        background-color:#fff !important;
+        box-shadow: 0 4px 2px -2px rgba(0,0,0,.2) !important;
+        height: 10% !important;
+    }
+    /*navbar css */
+    .navsearch:focus {
+        width: 85vw !important;
+    }
+    .navbar-brand img {
+        height: 45px !important;
+        left: -45px;
+    }
+    .pl-5, .px-5 {
+        padding-left: 0rem !important;
+    }
+    .pr-5, .px-5 {
+        padding-right: 0rem!important;
+    }
+    .pb-5, .py-5 {
+        padding-bottom: 1.5rem!important;
+    }
+    .pt-5, .py-5 {
+        padding-top: 1.5rem!important;
+    }
+    /*py-3 for main.html beware to use it on diff page check the compatiablity*/
+    .pb-3, .py-3 {
+        padding-bottom: 0rem!important;
+    }
+    .pt-3, .py-3 {
+        padding-top: 0rem!important;
+    }
+    /**/
+    #recipe-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+    }
+    #cart-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #acc-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@media (min-width: 322px) and (max-width: 376px) {
+    /* navbar css shadow */
+    .my-nav {
+        background-color:#fff !important;
+        box-shadow: 0 4px 2px -2px rgba(0,0,0,.2) !important;
+        height: 10% !important;
+    }
+    /*navbar css */
+    .navbar-brand img {
+        height: 45px !important;
+        left: -45px;
+    }
+    .navsearch:focus {
+        width: 85vw !important;
+    }
+    .pl-5, .px-5 {
+        padding-left: 0rem!important;
+    }
+    .pr-5, .px-5 {
+        padding-right: 0rem!important;
+    }
+    .pb-5, .py-5 {
+        padding-bottom: 1.5rem!important;
+    }
+    .pt-5, .py-5 {
+        padding-top: 1.5rem!important;
+    }
+    /*py-3 for main.html beware to use it on diff page check the compatiablity*/
+    .pb-3, .py-3 {
+        padding-bottom: 0rem!important;
+    }
+    .pt-3, .py-3 {
+        padding-top: 0rem!important;
+    }
+    /**/
+    #recipe-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+    }
+    #cart-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #acc-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .container-fluid {
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+    }
+    /*navbar css end*/
+}
+
+@media (min-width: 377px) and (max-width: 426px) {
+    /* navbar css shadow */
+    .my-nav {
+        background-color:#fff !important;
+        box-shadow: 0 4px 2px -2px rgba(0,0,0,.2) !important;
+        height: 10% !important;
+    }
+    /*navbar css */
+    .navbar-brand img {
+        height: 45px !important;
+        left: -45px;
+    }
+    .navsearch:focus {
+        width: 85vw !important;
+    }
+    .pr-5, .px-5 {
+        padding-right: 0rem!important;
+    }
+    .pl-5, .px-5 {
+        padding-left: 0rem !important;
+    }
+    .pb-5, .py-5 {
+        padding-bottom: 1.5rem!important;
+    }
+    .pt-5, .py-5 {
+        padding-top: 1.5rem!important;
+    }
+    /*py-3 for main.html beware to use it on diff page check the compatiablity*/
+    .pb-3, .py-3 {
+        padding-bottom: 0rem!important;
+    }
+    .pt-3, .py-3 {
+        padding-top: 0rem!important;
+    }
+    /**/
+    #recipe-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+    }
+    #cart-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #acc-icon {
+        width: 25px;
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    /*navbar css end*/
+}
+
+@media (min-width: 427px) and (max-width: 769px) {
+    /* navbar css shadow */
+    .my-nav {
+        background-color:#fff !important;
+        box-shadow: 0 4px 2px -2px rgba(0,0,0,.2) !important;
+        height: 10% !important;
+    }
+    /*navbar css */
+    .navbar-brand img {
+        height: 45px !important;
+        left: -45px;
+    }
+    .navsearch:focus {
+        width: 90vw !important;
+    }
+    .pr-5, .px-5 {
+        padding-right: 0rem!important;
+    }
+    .pl-5, .px-5 {
+        padding-left: 0rem !important;
+    }
+    .pb-5, .py-5 {
+        padding-bottom: 1.5rem!important;
+    }
+    .pt-5, .py-5 {
+        padding-top: 1.5rem!important;
+    }
+    /*py-3 for main.html beware to use it on diff page check the compatiablity*/
+    .pb-3, .py-3 {
+        padding-bottom: 0rem!important;
+    }
+    .pt-3, .py-3 {
+        padding-top: 0rem!important;
+    }
+    /**/
+    /*navbar css end*/
+}

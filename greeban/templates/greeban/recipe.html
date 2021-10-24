@@ -1,0 +1,186 @@
+{% extends 'greeban/main.html' %}
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/recipe.css' %}">
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock %}
+{% block navbar %}
+<a class="" href="{% url 'recipe' %}" data-toggle="tooltip" data-placement="bottom" title="Recipes">
+  <img id="recipe-icon" src="{% static 'images/Recipi_page.png' %}">
+</a>
+<a class="" href="{% url 'cart' %}" data-toggle="tooltip" data-placement="bottom" title="Cart">
+  <img id="cart-icon" src="{% static 'images/cart_green.png' %}">
+</a>
+<a class="" href="#" onclick="goToProfile()" data-toggle="tooltip" data-placement="bottom" title="Account">
+  <img id="acc-icon" src="{% static 'images/user_prod.png' %}">
+</a>
+{% endblock %}
+{% block content %}
+<div class="container py-3"></div>
+<div class="container py-5">
+	<div class="row">
+      <div class="col-md-6">
+        <a href="#">
+		<img class="img-fluid rounded mb-3 mb-md-0 img_recipe" src="{% static 'images/Recipe/Asparagus_Pesto_Pizza.webp' %}" data-aos="zoom-in-up">
+		</a>
+	  </div>
+	  <div class="col-md-5" data-aos="fade-up" data-aos-duration="2000">
+	    <h3>Asparagus Pesto Pizza</h3>
+        <p>Course :Main Course<br>
+        Cuisine : Italian<br>
+        Prep Time : 15 minutes<br>
+        Cook Time : 12 minutes<br>
+        Total Time : 27 minutes<br>
+        Servings : 2 pizzas<br>
+        Calories : 206kcal<br>
+        AuthorEat Love Eat<br><br>
+        <b>Ingredients</b><br><br>
+        bunch of asparagus (250 g),20 g basil leaves (1 cup),5 g mint leaves (1/4 cup),30 g cashew nuts (1/4 cup),25 g finely grated parmesan cheese (1 cup),4 tablespoons rapeseed or              olive oil,2 tablespoons lemon juice (roughly half a lemon),wholemeal pizza dough,mozzarella,spring onions peashoots and parmesan to top<br><br>
+        <b>Instructions</b><br><br>
+        Preheat the oven to 225º (437ºF). I use a fan oven so you may need to set your oven a little hotter! Place a pizza stone in the oven as it heats up (or a baking tray if you don't          have one).<br>
+        Prepare the asparagus. Snap off the woody ends and chop into pieces. Reserve the tips and place the rest into the food processor along with the basil and mint leaves, cashews,             parmesan, oil and lemon juice. Blitz until smooth and well combined.<br>
+        Roll out the pizza dough and place on the preheated pizza stone. Spread with about 1/2 cup of pesto and top with the asparagus tips, some chopped spring onions and a sliced ball           of mozzarella.<br>
+        Bake in the preheated oven for 10-12 minutes until golden brown and bubbling. Serve topped with peashoots and shaved parmesan, if liked.</p>
+	  </div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+        <div class="col-md-6" data-aos="fade-up" data-aos-duration="2000">
+	    <h3>Basil Pesto</h3>
+        <p><b>INGREDIENTS</b><br><br>
+        2 Cups Fresh Basil Leaves- Packed, 1/4 Cup Lightly Toasted Pine Nuts, 2 Large Garlic Cloves, 1/2 Cup Grated Parmesan or Romano Cheese, 1/2 Cup Extra Virgin Olive Oil<br><br>
+        <b>INSTRUCTIONS</b><br><br>
+        Place all the ingredients in a food processor except the oil, and pulse. Start to add in the oil slowly, pulsing continuously until you have a smooth paste. Use immediately to top         any pasta dish. (If you do not plan to use it right away, store in a container with an additional layer of olive oil on top to prevent discoloration.)<br><br>
+        <b>Nutrition Information: <br></b>
+        YIELD: 4 SERVING SIZE: 3 tablespoons<br>
+        Amount Per Serving: CALORIES: 380 TOTAL FAT: 38g SATURATED FAT: 7g TRANS FAT: 0g UNSATURATED FAT: 29g CHOLESTEROL: 18mg SODIUM: 329mg CARBOHYDRATES: 4g FIBER: 1g SUGAR: 0g                 PROTEIN: 7g</p>
+	  </div>
+      <div class="col-md-6">
+        <a href="#">
+		<img class="img-fluid rounded mb-3 mb-md-0 img_recipe" src="{% static 'images/Recipe/Basil_Pesto.webp' %}" data-aos="zoom-in-up">
+		</a>
+	  </div>
+	  
+	</div>
+
+	<hr>
+
+	<div class="row">
+      <div class="col-md-6">
+        <a href="#">
+		<img class="img-fluid rounded mb-3 mb-md-0 img_recipe" src="{% static 'images/Recipe/rommaine_lettuce_salad.webp' %}" data-aos="zoom-in-up">
+		</a>
+	  </div>
+	  <div class="col-md-5" data-aos="fade-up" data-aos-duration="2000">
+	    <h3>Romain Lettuce Salad</h3>
+        <p><b>Ingredients:</b><br><br>
+1 romaine lettuce OR 2 romaine lettuce hearts,2-3 tomatoes,~4oz. feta cheese,~1/4 cup olive oil,1.5 tablespoon balsamic vinegar,1/8 teaspoon salt<br><br>
+<b>Instructions:</b><br>
+Rinse and dry lettuce.Shred it (with your hands).Toss into a big salad bowl.Chop tomatoes into irregular chunks.Chop the feta cheese the same way.Toss both into the salad bowl.In a small bowl OR a glass (or special dressing shaker): put together olive oil, vinegar and salt.Whisk vigorously, you can use a fork to do that.Mix vegetables and feta in the salad bowl.Pour dressing all over salad, and mix well again.Serve and enjoy!<br><br>
+<b>Yield:</b> 4 side dish serving sizes OR 2 big servings (great for lunch)<br>
+<b>Nutritional Info (side dish):</b> Cal 235, Prot 6g, Carb 10g, Fat 20g, Fiber 3.8g</p>
+	  </div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+        <div class="col-md-6" data-aos="fade-up" data-aos-duration="2000">
+	    <h3>KALE CHIPS</h3>
+        <p>Kale chips are addicting and healthy.  Kids even love this recipe.   They are versatile – change it up by adding your favorite spices.  Don’t crowd the sheet or put too much            olive oil or lemon juice on them.  They will end up steaming and not be as crispy<br><br>
+        Author: beckie<br>
+        Prep Time: 15 Minutes<br>
+        Cook Time: 15 Minutes<br>
+        Total Time: 30 minutes<br>
+        Yield: 6 1x<br>
+        Category: Appetizer<br>
+        Method: Oven<br>
+        Cuisine: International<br><br>
+        <b>INGREDIENTS</b><br><br>
+        1 large head kale, rinsed, dried, de-stemmed, tore apart in large chunks,olive oil to lightly coat (~1-2 Tbsp),1 Tbsp fresh Lemon Juice (add a little more if you like it tangier),         sea salt to taste black pepper or red chili flakes to taste<br><br>
+        <b>INSTRUCTIONS</b><br><br>
+        Preheat oven to 325F.  Use convection if you’ve got it.  Line a baking sheet with aluminum foil or parchment.<br>
+        Place Kale in large bowl and mix in olive oil and lemon juice.  Sprinkle with a pinch of sea salt and black pepper or any other spices you like and toss.<br>
+        Lay kale out in an even layer and bake ~ 7 minutes.  Rotate the pan and bake another 7 minutes or until kale chips are crispy.  Bake a little longer if the kale is soggy and not           crisping. Add sea salt to taste.<br>Happy Eating!<br><br>
+        <a href="https://www.yummly.com/recipe/Kale-Chips-1936032#directions" target="_blank">https://www.yummly.com/recipe/Kale-Chips-1936032#directions</a>
+	  </div>
+      <div class="col-md-6">
+        <a href="#">
+		<img class="img-fluid rounded mb-3 mb-md-0 img_recipe" src="{% static 'images/Recipe/Kale_Chips.webp' %}" data-aos="zoom-in-up">
+		</a>
+	  </div>
+	  
+	</div>
+
+    <hr>
+
+    	<div class="row">
+      <div class="col-md-6">
+        <a href="#">
+		<img class="img-fluid rounded mb-3 mb-md-0 img_recipe" src="{% static 'images/Recipe/Mushroom_Omlet_with_Microgreens.webp' %}" data-aos="zoom-in-up">
+		</a>
+	  </div>
+	  <div class="col-md-5" data-aos="fade-up" data-aos-duration="2000">
+	    <h3>Mushroom Omelette with Microgreens</h3>
+        <p><b>Ingredients:</b><br><br>
+        1 teaspoon butter,3 eggs,1 tablespoon olive oil,1 handful fresh microgreens plus more for garnsih,1/4 lb 110 g edible mushrooms,salt and pepper to taste<br><br>
+        <b>Instructions:</b><br>
+        Heat grill to medium high.<br>
+        Brush mushroom with olive oil and grill, turning every couple of minutes, for 4-5 minutes. Allow to cool, chop coarsely and set aside.<br>
+        In large skillet, heat butter over medium-high heat.<br>
+        Whisk eggs, salt, and pepper in a bowl and add to skillet; cook, stirring occasionally, until large curds form, 3-4 minutes, then gently stir until eggs are almost set.<br>
+        Using a rubber spatula, pat eggs into an even layer.<br>
+        Add microgreens and musrhooms to top of one half of omelette.<br>
+        Slide half the omelette onto a plate and using spatula, fold remaining omelet over the filling; garnish with additional micrgreensl.<br>
+        </p>
+	  </div>
+	</div>
+
+    <hr>
+</div>
+<div class="text-center m-0 d-flex  justify-content-center">
+       <p class="lead justify-content-end"><a class="btn btn-primary btn-lg" href="#top"><i class="fa fa-long-arrow-up"></i>Top</a></p>
+   </div>
+{% endblock content %}
+{% block scripts %}
+<script  type="text/javascript">
+  $(function () {
+      $(window).scroll(function () {
+          if ($(this).scrollTop() < 200) {
+              $('.navbar .container-fluid .navbar-brand img').attr('src', "{% static 'images/logoHomepage.png' %}");
+              $('.navbar .container-fluid .navbar-brand img').css('height', '');
+          }
+          if ($(this).scrollTop() > 200) {
+              $('.navbar .container-fluid .navbar-brand img').attr('src', "{% static 'images/logoWeb.png' %}");
+              $('.navbar .container-fluid .navbar-brand img').css('height', '65px');
+          }
+      })
+  });
+</script>
+<script type="text/javascript">
+  $(document).ready(function () {
+      if (window.matchMedia("(max-width: 768px)").matches) {
+          $(".navsearch").focus(function () {
+              $('#navlogo').hide();
+              $('#recipe-icon').hide();
+              $('#cart-icon').hide();
+              $('#acc-icon').hide();
+              //return false;
+          });
+          $('.navsearch').blur(function () {
+              if (!$(this).val()) {
+                  $('#navlogo').show('slow');
+                  $('#recipe-icon').show('slow');
+                  $('#cart-icon').show('slow');
+                  $('#acc-icon').show('slow');
+              }
+          });
+      }
+
+
+  });//end
+</script>
+{% endblock %}
+    
